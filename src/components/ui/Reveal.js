@@ -1,10 +1,12 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { motionViewport, motionVariants } from "@/lib/animations";
 import { cn } from "@/lib/helpers";
+
+const subscribe = () => () => {};
 
 export default function Reveal({
   as: Component = motion.div,
@@ -14,11 +16,7 @@ export default function Reveal({
   children,
 }) {
   const reduceMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
 
   const variants = reduceMotion
     ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
