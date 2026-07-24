@@ -72,21 +72,23 @@ export default function AboutSection() {
           </div>
 
           <Reveal variant="fadeLeft">
-            <div className="mx-auto max-w-[520px] overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)] lg:ml-auto lg:mr-0">
-              <Image
-                src="/images/team-collab.jpg"
-                alt="CipherIgnite team collaborating over campaign materials"
-                width={560}
-                height={510}
-                className="aspect-[4/3.4] h-auto w-full rounded-[16px] object-cover"
-                priority
-              />
+            <div className="media-glow relative mx-auto max-w-[520px] lg:ml-auto lg:mr-0">
+              <div className="relative z-10 overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)]">
+                <Image
+                  src="/images/team-collab.jpg"
+                  alt="CipherIgnite team collaborating over campaign materials"
+                  width={560}
+                  height={510}
+                  className="aspect-[4/3.4] h-auto w-full rounded-[16px] object-cover"
+                  priority
+                />
+              </div>
             </div>
           </Reveal>
         </div>
       </SectionContainer>
 
-      <SectionContainer className="bg-[var(--color-surface)] py-20 sm:py-24 lg:py-28">
+      <SectionContainer className="section-grid py-20 sm:py-24 lg:py-28">
         <SectionTitle
           eyebrow="OUR MISSION"
           title={
@@ -101,7 +103,12 @@ export default function AboutSection() {
 
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {missionCards.map((card, index) => (
-            <Reveal key={card.title} delay={index * 0.05} variant="scaleIn">
+            <Reveal
+              key={card.title}
+              delay={index * 0.05}
+              variant="scaleIn"
+              className="h-full"
+            >
               <Card {...card} className="h-full" />
             </Reveal>
           ))}

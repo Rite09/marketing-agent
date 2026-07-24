@@ -58,7 +58,7 @@ export default function Programs() {
 
       <SectionContainer
         id="featured-services"
-        className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-20 sm:py-24 lg:py-28"
+        className="section-grid border-b border-[var(--color-border)] py-20 sm:py-24 lg:py-28"
       >
         <SectionTitle
           eyebrow="FEATURED"
@@ -69,21 +69,26 @@ export default function Programs() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {featuredPrograms.map((program, index) => (
-            <Reveal key={program.title} delay={index * 0.05} variant="scaleIn">
+            <Reveal
+              key={program.title}
+              delay={index * 0.05}
+              variant="scaleIn"
+              className="h-full"
+            >
               <Card {...program} className="h-full" />
             </Reveal>
           ))}
         </div>
       </SectionContainer>
 
-      <SectionContainer className="section-soft py-20 sm:py-24 lg:py-28">
+      <SectionContainer className="section-dots py-20 sm:py-24 lg:py-28">
         <div className="space-y-16 lg:space-y-20">
           {programs.map((program) => (
             <section key={program.id} id={program.id} className="scroll-mt-28">
               <Reveal>
                 <div className="mb-7 flex items-start gap-3.5">
-                  <div className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-[12px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]">
-                    <program.icon className="size-[18px]" strokeWidth={1.9} />
+                  <div className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-[14px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)] shadow-[var(--shadow-xs)]">
+                    <program.icon className="size-5" strokeWidth={1.85} />
                   </div>
                   <div>
                     <h2 className="text-[1.3rem] font-semibold tracking-[-0.02em] text-[var(--color-text)] sm:text-[1.4rem]">
@@ -98,12 +103,12 @@ export default function Programs() {
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {program.items.map((item, index) => (
-                  <Reveal key={item.title} delay={index * 0.03}>
+                  <Reveal key={item.title} delay={index * 0.03} className="h-full">
                     <article className="group flex h-full items-start gap-3.5 rounded-[16px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-xs)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(37,99,235,0.28)] hover:shadow-[var(--shadow-sm)] sm:p-5">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-[10px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]">
-                        <item.icon className="size-4" strokeWidth={1.9} />
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)]">
+                        <item.icon className="size-4" strokeWidth={1.85} />
                       </div>
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-[15px] font-semibold leading-[1.35] tracking-[-0.015em] text-[var(--color-text)]">
                           {item.title}
                         </h3>

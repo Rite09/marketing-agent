@@ -36,7 +36,7 @@ const benefitCards = [
 
 export default function Benefits() {
   return (
-    <SectionContainer className="section-soft border-b border-[var(--color-border)] py-20 sm:py-24 lg:py-28">
+    <SectionContainer className="section-dots border-b border-[var(--color-border)] py-20 sm:py-24 lg:py-28">
       <div className="grid gap-12 xl:grid-cols-[0.95fr_1.05fr] xl:items-center xl:gap-14">
         <div>
           <SectionTitle
@@ -48,37 +48,39 @@ export default function Benefits() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {benefitCards.map((card, index) => (
-              <Reveal key={card.title} delay={index * 0.05}>
-                <Card {...card} className="h-full p-5" iconClassName="size-9" />
+              <Reveal key={card.title} delay={index * 0.05} className="h-full">
+                <Card {...card} className="h-full p-5" iconClassName="size-10" />
               </Reveal>
             ))}
           </div>
         </div>
 
         <Reveal variant="fadeLeft" className="relative">
-          <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)]">
-            <div className="relative overflow-hidden rounded-[16px]">
-              <Image
-                src="/images/analytics-work.jpg"
-                alt="Marketer reviewing analytics dashboards on a laptop"
-                width={640}
-                height={420}
-                className="aspect-[4/3] h-auto w-full rounded-[16px] object-cover"
-              />
-            </div>
-            <div className="relative z-10 -mt-10 grid gap-2.5 px-2.5 pb-2.5 sm:grid-cols-3">
-              {performanceStats.map((item, index) => (
-                <Reveal key={item.label} delay={0.1 + index * 0.05}>
-                  <div className="rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 shadow-[var(--shadow-sm)]">
-                    <div className="text-[1.45rem] font-semibold leading-none tracking-[-0.03em] text-[var(--color-text)]">
-                      {item.value}
+          <div className="media-glow relative">
+            <div className="relative z-10 overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)]">
+              <div className="relative overflow-hidden rounded-[16px]">
+                <Image
+                  src="/images/analytics-work.jpg"
+                  alt="Marketer reviewing analytics dashboards on a laptop"
+                  width={640}
+                  height={420}
+                  className="aspect-[4/3] h-auto w-full rounded-[16px] object-cover"
+                />
+              </div>
+              <div className="relative z-10 -mt-10 grid gap-2.5 px-2.5 pb-2.5 sm:grid-cols-3">
+                {performanceStats.map((item, index) => (
+                  <Reveal key={item.label} delay={0.1 + index * 0.05}>
+                    <div className="rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 shadow-[var(--shadow-sm)]">
+                      <div className="text-[1.45rem] font-semibold leading-none tracking-[-0.03em] text-[var(--color-text)]">
+                        {item.value}
+                      </div>
+                      <p className="mt-1.5 text-[12px] text-[var(--color-muted)]">
+                        {item.label}
+                      </p>
                     </div>
-                    <p className="mt-1.5 text-[12px] text-[var(--color-muted)]">
-                      {item.label}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

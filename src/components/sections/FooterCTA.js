@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, MessageCircleMore } from "lucide-react";
 
 import SectionContainer from "@/components/layout/SectionContainer";
@@ -8,9 +9,20 @@ import { siteMetadata } from "@/lib/constants";
 
 export default function FooterCTA() {
   return (
-    <SectionContainer className="py-16 sm:py-20 lg:py-24">
+    <SectionContainer className="section-soft py-16 sm:py-20 lg:py-24">
       <Reveal variant="scaleIn">
         <div className="cta-panel relative overflow-hidden rounded-[24px] px-6 py-10 shadow-[var(--shadow-md)] md:px-10 md:py-12">
+          <Image
+            src="/images/strategy-meeting.jpg"
+            alt=""
+            fill
+            aria-hidden="true"
+            className="object-cover opacity-[0.18]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.92)_0%,rgba(30,41,59,0.88)_100%)]"
+          />
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:gap-10">
             <div className="max-w-[36rem]">
               <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#93c5fd]">

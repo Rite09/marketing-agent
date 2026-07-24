@@ -75,9 +75,37 @@ textarea {
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 }
 
+.section-grid {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.section-dots {
+  background-color: #f8f9fb;
+  background-image: radial-gradient(rgba(37, 99, 235, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.media-glow {
+  position: relative;
+}
+
+.media-glow::before {
+  position: absolute;
+  inset: 12% -6% -8% 18%;
+  z-index: 0;
+  border-radius: 40px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22), transparent 70%);
+  content: "";
+  filter: blur(18px);
+}
+
 .cta-panel {
   background:
-    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.18), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.22), transparent 36%),
     linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 

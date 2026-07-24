@@ -143,7 +143,7 @@ export default function Contact() {
         <div className="space-y-5">
           <Reveal delay={0.08} variant="fadeLeft">
             <div className="rounded-[20px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-sm)] sm:p-7">
-              <div className="flex items-center gap-2 text-[13px] font-medium text-[var(--color-success)]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(5,150,105,0.18)] bg-[var(--color-success-tint)] px-3 py-1.5 text-[13px] font-medium text-[var(--color-success)]">
                 <Clock3 className="size-3.5" strokeWidth={2.2} />
                 We respond within 24 hours
               </div>
@@ -173,7 +173,9 @@ export default function Contact() {
               </h2>
               <div className="mt-6 space-y-5">
                 <div className="flex gap-3.5">
-                  <Mail className="mt-0.5 size-4 shrink-0 text-[var(--color-accent)]" />
+                  <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)]">
+                    <Mail className="size-4" strokeWidth={1.85} />
+                  </span>
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
                       Email
@@ -188,7 +190,9 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-3.5">
-                  <Phone className="mt-0.5 size-4 shrink-0 text-[var(--color-accent)]" />
+                  <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)]">
+                    <Phone className="size-4" strokeWidth={1.85} />
+                  </span>
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
                       Phone
@@ -203,7 +207,9 @@ export default function Contact() {
                 </div>
 
                 <div className="flex gap-3.5">
-                  <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--color-accent)]" />
+                  <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)]">
+                    <MapPin className="size-4" strokeWidth={1.85} />
+                  </span>
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)]">
                       Where

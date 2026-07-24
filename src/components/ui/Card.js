@@ -18,7 +18,7 @@ export default function Card({
   return (
     <article
       className={cn(
-        "group rounded-[18px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-xs)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.28)] hover:shadow-[var(--shadow-md)]",
+        "group flex h-full flex-col rounded-[18px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-xs)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.28)] hover:shadow-[var(--shadow-md)]",
         className
       )}
     >
@@ -26,11 +26,11 @@ export default function Card({
         {Icon ? (
           <div
             className={cn(
-              "flex size-10 items-center justify-center rounded-[12px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]",
+              "flex size-11 items-center justify-center rounded-[14px] border border-[rgba(37,99,235,0.12)] bg-[linear-gradient(180deg,#eff6ff_0%,#dbeafe_100%)] text-[var(--color-accent)] shadow-[var(--shadow-xs)]",
               iconClassName
             )}
           >
-            <Icon className="size-[18px]" strokeWidth={1.9} />
+            <Icon className="size-5" strokeWidth={1.85} />
           </div>
         ) : null}
         {badge ? <Badge>{badge}</Badge> : null}
@@ -51,7 +51,7 @@ export default function Card({
       {description ? (
         <p
           className={cn(
-            "mt-2.5 text-[14px] leading-[1.65] text-[var(--color-muted)]",
+            "mt-2.5 flex-1 text-[14px] leading-[1.65] text-[var(--color-muted)]",
             descriptionClassName
           )}
         >
