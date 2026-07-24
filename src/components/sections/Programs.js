@@ -6,32 +6,31 @@ import Card from "@/components/ui/Card";
 import Heading from "@/components/ui/Heading";
 import Reveal from "@/components/ui/Reveal";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Tag from "@/components/ui/Tag";
 import { featuredPrograms, programs } from "@/data/programs";
 
 export default function Programs() {
   return (
     <div>
-      <SectionContainer className="border-b border-[var(--color-border)] pt-28 sm:pt-32 lg:pt-36">
-        <div className="max-w-[640px] pb-20 sm:pb-24 lg:pb-28">
+      <SectionContainer className="hero-mesh border-b border-[var(--color-border)] pt-28 sm:pt-32 lg:pt-36">
+        <div className="max-w-[640px] pb-16 sm:pb-20 lg:pb-24">
           <Reveal>
-            <Tag className="border-none bg-transparent px-0 py-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-soft)]">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
               OUR CAPABILITIES
-            </Tag>
+            </p>
           </Reveal>
 
-          <Reveal delay={0.08}>
+          <Reveal delay={0.06}>
             <Heading
               as="h1"
-              className="mt-6 text-[2.5rem] leading-[1.1] sm:text-[3.15rem] lg:text-[3.35rem]"
+              className="mt-5 text-[2.5rem] sm:text-[3.1rem] lg:text-[3.25rem]"
             >
               A full-service marketing partner - built around{" "}
               <span className="text-gradient">your growth goals</span>.
             </Heading>
           </Reveal>
 
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[var(--color-muted)] sm:text-[17px]">
+          <Reveal delay={0.12}>
+            <p className="mt-5 max-w-[34rem] text-[16px] leading-[1.7] text-[var(--color-muted)]">
               From strategy and creative to performance and analytics - pick a
               single service or run a fully integrated program. Every engagement
               starts with goals, audience and the metrics that matter.
@@ -39,8 +38,8 @@ export default function Programs() {
           </Reveal>
 
           <Reveal
-            delay={0.24}
-            className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+            delay={0.18}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <Button href="/contact" size="lg">
               Get Free Consultation
@@ -48,7 +47,7 @@ export default function Programs() {
             </Button>
             <a
               href="#featured-services"
-              className="inline-flex h-[52px] items-center gap-2 px-2 text-[15px] font-semibold text-white transition hover:text-[var(--color-accent-soft)]"
+              className="inline-flex h-12 items-center gap-2 px-2 text-[15px] font-semibold text-[var(--color-text)] transition hover:text-[var(--color-accent)]"
             >
               Browse all services
               <ArrowRight className="size-4" />
@@ -59,7 +58,7 @@ export default function Programs() {
 
       <SectionContainer
         id="featured-services"
-        className="border-b border-[var(--color-border)] py-24 sm:py-28 lg:py-32"
+        className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-20 sm:py-24 lg:py-28"
       >
         <SectionTitle
           eyebrow="FEATURED"
@@ -70,29 +69,24 @@ export default function Programs() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {featuredPrograms.map((program, index) => (
-            <Reveal key={program.title} delay={index * 0.06}>
-              <Card
-                {...program}
-                className="h-full"
-                titleClassName="mt-4 text-[1.05rem]"
-                descriptionClassName="mt-2.5 text-[13px] leading-[1.6]"
-              />
+            <Reveal key={program.title} delay={index * 0.05} variant="scaleIn">
+              <Card {...program} className="h-full" />
             </Reveal>
           ))}
         </div>
       </SectionContainer>
 
-      <SectionContainer className="py-24 sm:py-28 lg:py-32">
-        <div className="space-y-20 lg:space-y-24">
+      <SectionContainer className="section-soft py-20 sm:py-24 lg:py-28">
+        <div className="space-y-16 lg:space-y-20">
           {programs.map((program) => (
             <section key={program.id} id={program.id} className="scroll-mt-28">
               <Reveal>
-                <div className="mb-8 flex items-start gap-3.5">
-                  <div className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl bg-[rgba(45,104,255,0.14)] text-[var(--color-accent-soft)]">
+                <div className="mb-7 flex items-start gap-3.5">
+                  <div className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-[12px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]">
                     <program.icon className="size-[18px]" strokeWidth={1.9} />
                   </div>
                   <div>
-                    <h2 className="text-[1.35rem] font-bold tracking-[-0.02em] text-white sm:text-[1.5rem]">
+                    <h2 className="text-[1.3rem] font-semibold tracking-[-0.02em] text-[var(--color-text)] sm:text-[1.4rem]">
                       {program.label}
                     </h2>
                     <p className="mt-1.5 max-w-[40rem] text-[14px] leading-[1.65] text-[var(--color-muted)] sm:text-[15px]">
@@ -104,13 +98,13 @@ export default function Programs() {
 
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {program.items.map((item, index) => (
-                  <Reveal key={item.title} delay={index * 0.04}>
-                    <article className="group flex h-full items-start gap-3.5 rounded-2xl border border-[var(--color-border)] bg-[rgba(16,21,31,0.92)] p-4 transition duration-300 hover:border-[rgba(45,104,255,0.4)] hover:bg-[rgba(18,24,36,0.98)] sm:p-5">
-                      <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[rgba(45,104,255,0.14)] text-[var(--color-accent-soft)]">
+                  <Reveal key={item.title} delay={index * 0.03}>
+                    <article className="group flex h-full items-start gap-3.5 rounded-[16px] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-xs)] transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(37,99,235,0.28)] hover:shadow-[var(--shadow-sm)] sm:p-5">
+                      <div className="flex size-9 shrink-0 items-center justify-center rounded-[10px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]">
                         <item.icon className="size-4" strokeWidth={1.9} />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-[15px] font-bold leading-[1.35] tracking-[-0.015em] text-white">
+                        <h3 className="text-[15px] font-semibold leading-[1.35] tracking-[-0.015em] text-[var(--color-text)]">
                           {item.title}
                         </h3>
                         <p className="mt-1.5 text-[13px] leading-[1.55] text-[var(--color-muted)]">

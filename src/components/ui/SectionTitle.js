@@ -1,5 +1,4 @@
 import Heading from "@/components/ui/Heading";
-import Tag from "@/components/ui/Tag";
 import { cn } from "@/lib/helpers";
 
 export default function SectionTitle({
@@ -21,13 +20,13 @@ export default function SectionTitle({
       )}
     >
       {eyebrow ? (
-        <Tag className="mb-4 border-none bg-transparent px-0 py-0 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-soft)]">
+        <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
           {eyebrow}
-        </Tag>
+        </p>
       ) : null}
       <Heading
         className={cn(
-          "max-w-[16ch] text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem]",
+          "max-w-[18ch] text-[2rem] sm:text-[2.35rem] lg:text-[2.6rem]",
           centered ? "mx-auto" : "",
           titleClassName
         )}
@@ -35,7 +34,7 @@ export default function SectionTitle({
         {title}
       </Heading>
       {description ? (
-        <p className="mt-4 max-w-[48ch] text-[15px] leading-[1.7] text-[var(--color-muted)] sm:text-base">
+        <p className="mt-4 max-w-[46ch] text-[15px] leading-[1.7] text-[var(--color-muted)] sm:text-[16px]">
           {description}
         </p>
       ) : null}

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-import { motionViewport } from "@/lib/animations";
+import { motionViewport, motionVariants } from "@/lib/animations";
 import { cn } from "@/lib/helpers";
-import { useAnimation } from "@/hooks/useAnimation";
 
 export default function Reveal({
   as: Component = motion.div,
@@ -13,13 +13,26 @@ export default function Reveal({
   className,
   children,
 }) {
-  const variants = useAnimation(variant);
+  const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const variants = reduceMotion
+    ? { hidden: { opacity: 1 }, visible: { opacity: 1 } }
+    : (motionVariants[variant] ?? motionVariants.fadeUp);
+
+  if (!mounted) {
+    return <div className={cn(className)}>{children}</div>;
+  }
 
   return (
     <Component
       className={cn(className)}
       variants={variants}
-      initial="hidden"
+      initial={reduceMotion ? "visible" : "hidden"}
       whileInView="visible"
       viewport={motionViewport}
       transition={{ delay }}

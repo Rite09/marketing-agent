@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #05070a;
-  --color-surface: #0a0e14;
-  --color-surface-strong: #10151f;
-  --color-text: #ffffff;
-  --color-muted: #a1a1aa;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(255, 255, 255, 0.14);
-  --color-accent: #2d68ff;
-  --color-accent-strong: #2558e6;
-  --color-accent-soft: #68a0ff;
-  --color-accent-cyan: #5ce1ff;
-  --color-success: #22c55e;
+  --color-background: #f8f9fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f6f8;
+  --color-surface-strong: #eef2f7;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-border: rgba(15, 23, 42, 0.08);
+  --color-border-strong: rgba(15, 23, 42, 0.14);
+  --color-accent: #2563eb;
+  --color-accent-strong: #1d4ed8;
+  --color-accent-soft: #3b82f6;
+  --color-accent-tint: rgba(37, 99, 235, 0.08);
+  --color-success: #059669;
+  --color-success-tint: rgba(5, 150, 105, 0.1);
+  --color-danger: #dc2626;
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 18px 48px rgba(15, 23, 42, 0.08);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
 }
 
 @theme inline {
@@ -28,10 +38,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse 70% 50% at 85% 8%, rgba(45, 104, 255, 0.14), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 10% 70%, rgba(13, 79, 144, 0.12), transparent 50%),
-    var(--color-background);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-jakarta), sans-serif;
   text-rendering: optimizeLegibility;
@@ -46,86 +53,32 @@ textarea {
 }
 
 ::selection {
-  background: rgba(45, 104, 255, 0.28);
-  color: #ffffff;
+  background: rgba(37, 99, 235, 0.16);
+  color: var(--color-text);
 }
 
 .text-gradient {
-  background: linear-gradient(105deg, #5ce1ff 0%, #3b82ff 55%, #2d68ff 100%);
+  background: linear-gradient(105deg, #2563eb 0%, #4f46e5 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.hero-grid {
+.hero-mesh {
   background:
-    linear-gradient(rgba(117, 135, 176, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(117, 135, 176, 0.045) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 20%, transparent 75%);
-  opacity: 0.9;
+    radial-gradient(ellipse 70% 55% at 85% -10%, rgba(37, 99, 235, 0.14), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 20%, rgba(79, 70, 229, 0.08), transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
 }
 
-.hero-glow::before,
-.cta-glow::before,
-.page-glow::before {
-  position: absolute;
-  inset: 0;
-  content: "";
+.section-soft {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+}
+
+.cta-panel {
   background:
-    radial-gradient(circle at 78% 28%, rgba(45, 104, 255, 0.22), transparent 32%),
-    radial-gradient(circle at 18% 72%, rgba(19, 175, 161, 0.12), transparent 28%);
-}
-
-.hero-orb-left,
-.hero-orb-right {
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(45, 104, 255, 0.2), transparent 70%);
-  filter: blur(12px);
-}
-
-.hero-band,
-.hero-band-alt {
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(45, 104, 255, 0.18), rgba(92, 225, 255, 0.04));
-  filter: blur(2px);
-}
-
-.hero-card-shape {
-  border-radius: 28px;
-  background: linear-gradient(145deg, rgba(45, 104, 255, 0.16), rgba(18, 63, 108, 0.02));
-  filter: blur(0.4px);
-}
-
-.hero-ring-left,
-.hero-ring-right {
-  border-radius: 999px;
-  border: 1.5px solid rgba(92, 225, 255, 0.18);
-  filter: blur(0.3px);
-}
-
-.cta-glow::after {
-  position: absolute;
-  bottom: -14%;
-  right: -6%;
-  height: 16rem;
-  width: 16rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(45, 104, 255, 0.28), transparent 70%);
-  content: "";
-  filter: blur(26px);
-}
-
-.page-glow::after {
-  position: absolute;
-  top: -10%;
-  left: -4%;
-  height: 12rem;
-  width: 12rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(45, 104, 255, 0.14), transparent 70%);
-  content: "";
-  filter: blur(18px);
+    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.18), transparent 36%),
+    linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .marquee-track {

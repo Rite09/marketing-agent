@@ -6,10 +6,10 @@ import Container from "@/components/ui/Container";
 export default function NotFound() {
   return (
     <Container className="flex min-h-[70vh] flex-col items-start justify-center py-24">
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-soft)]">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
         404
       </p>
-      <h1 className="mt-4 text-[2.5rem] font-bold tracking-[-0.035em] text-white">
+      <h1 className="mt-4 text-[2.4rem] font-semibold tracking-[-0.035em] text-[var(--color-text)]">
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-[15px] leading-[1.7] text-[var(--color-muted)]">
@@ -23,7 +23,7 @@ export default function NotFound() {
       </div>
       <Link
         href="/contact"
-        className="mt-6 text-[14px] text-[var(--color-muted)] transition hover:text-white"
+        className="mt-6 text-[14px] text-[var(--color-muted)] transition hover:text-[var(--color-accent)]"
       >
         Or contact us →
       </Link>

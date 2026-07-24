@@ -36,7 +36,7 @@ const benefitCards = [
 
 export default function Benefits() {
   return (
-    <SectionContainer className="border-b border-[var(--color-border)] py-24 sm:py-28 lg:py-32">
+    <SectionContainer className="section-soft border-b border-[var(--color-border)] py-20 sm:py-24 lg:py-28">
       <div className="grid gap-12 xl:grid-cols-[0.95fr_1.05fr] xl:items-center xl:gap-14">
         <div>
           <SectionTitle
@@ -48,7 +48,7 @@ export default function Benefits() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {benefitCards.map((card, index) => (
-              <Reveal key={card.title} delay={index * 0.06}>
+              <Reveal key={card.title} delay={index * 0.05}>
                 <Card {...card} className="h-full p-5" iconClassName="size-9" />
               </Reveal>
             ))}
@@ -56,22 +56,21 @@ export default function Benefits() {
         </div>
 
         <Reveal variant="fadeLeft" className="relative">
-          <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[rgba(10,14,20,0.96)] p-2.5 shadow-[0_30px_80px_rgba(0,0,0,0.4)]">
-            <div className="absolute inset-x-10 bottom-8 top-auto h-24 rounded-full bg-[rgba(45,104,255,0.12)] blur-[80px]" />
-            <div className="relative overflow-hidden rounded-xl">
+          <div className="relative overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)]">
+            <div className="relative overflow-hidden rounded-[16px]">
               <Image
-                src="/images/analytics-dashboard.png"
-                alt="Analytics dashboard with marketing performance metrics"
-                width={530}
-                height={320}
-                className="h-auto w-full rounded-xl object-cover"
+                src="/images/analytics-work.jpg"
+                alt="Marketer reviewing analytics dashboards on a laptop"
+                width={640}
+                height={420}
+                className="aspect-[4/3] h-auto w-full rounded-[16px] object-cover"
               />
             </div>
-            <div className="relative z-10 -mt-8 grid gap-2.5 px-2.5 pb-2.5 sm:grid-cols-3">
+            <div className="relative z-10 -mt-10 grid gap-2.5 px-2.5 pb-2.5 sm:grid-cols-3">
               {performanceStats.map((item, index) => (
-                <Reveal key={item.label} delay={0.12 + index * 0.05}>
-                  <div className="rounded-xl border border-[var(--color-border)] bg-[rgba(9,14,20,0.94)] px-4 py-3.5 shadow-[0_18px_40px_rgba(0,0,0,0.28)]">
-                    <div className="text-[1.65rem] font-bold leading-none tracking-[-0.03em] text-white">
+                <Reveal key={item.label} delay={0.1 + index * 0.05}>
+                  <div className="rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 shadow-[var(--shadow-sm)]">
+                    <div className="text-[1.45rem] font-semibold leading-none tracking-[-0.03em] text-[var(--color-text)]">
                       {item.value}
                     </div>
                     <p className="mt-1.5 text-[12px] text-[var(--color-muted)]">

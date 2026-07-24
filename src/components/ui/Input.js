@@ -8,19 +8,19 @@ const Input = forwardRef(function Input(
 ) {
   return (
     <label className={cn("block space-y-2", className)}>
-      <span className="block text-[13px] font-medium text-[var(--color-muted)]">
+      <span className="block text-[13px] font-medium text-[var(--color-text)]">
         {label}
       </span>
       <input
         ref={ref}
         className={cn(
-          "h-12 w-full rounded-xl border border-[var(--color-border)] bg-[rgba(8,11,18,0.9)] px-4 text-[14px] text-white outline-none transition duration-300 placeholder:text-[rgba(161,161,170,0.45)] focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[rgba(45,104,255,0.18)]",
+          "h-11 w-full rounded-[12px] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3.5 text-[14px] text-[var(--color-text)] outline-none transition duration-200 placeholder:text-[#94a3b8] hover:border-[rgba(37,99,235,0.35)] focus:border-[var(--color-accent)] focus:ring-4 focus:ring-[rgba(37,99,235,0.12)]",
           inputClassName
         )}
         {...props}
       />
       {error ? (
-        <span className="block text-[13px] text-[#f87171]">{error}</span>
+        <span className="block text-[13px] text-[var(--color-danger)]">{error}</span>
       ) : null}
     </label>
   );

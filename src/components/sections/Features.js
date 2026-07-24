@@ -40,8 +40,8 @@ const services = [
 
 export default function Features() {
   return (
-    <SectionContainer className="border-b border-[var(--color-border)] py-24 sm:py-28 lg:py-32">
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+    <SectionContainer className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-20 sm:py-24 lg:py-28">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle
           eyebrow="WHAT WE DO"
           title="Marketing services that drive growth"
@@ -51,7 +51,7 @@ export default function Features() {
         <Reveal className="lg:pb-1">
           <a
             href="/services"
-            className="inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--color-accent-soft)] transition hover:text-white"
+            className="inline-flex items-center gap-2 text-[14px] font-semibold text-[var(--color-accent)] transition hover:text-[var(--color-accent-strong)]"
           >
             Explore all services
             <ArrowRight className="size-4" />
@@ -61,7 +61,7 @@ export default function Features() {
 
       <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {services.map((service, index) => (
-          <Reveal key={service.title} delay={index * 0.06}>
+          <Reveal key={service.title} delay={index * 0.05} variant="scaleIn">
             <Card {...service} cta />
           </Reveal>
         ))}

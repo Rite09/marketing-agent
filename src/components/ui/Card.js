@@ -18,7 +18,7 @@ export default function Card({
   return (
     <article
       className={cn(
-        "group rounded-2xl border border-[var(--color-border)] bg-[rgba(16,21,31,0.92)] p-6 transition duration-300 hover:border-[rgba(45,104,255,0.4)] hover:bg-[rgba(18,24,36,0.98)]",
+        "group rounded-[18px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-xs)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(37,99,235,0.28)] hover:shadow-[var(--shadow-md)]",
         className
       )}
     >
@@ -26,7 +26,7 @@ export default function Card({
         {Icon ? (
           <div
             className={cn(
-              "flex size-10 items-center justify-center rounded-xl bg-[rgba(45,104,255,0.14)] text-[var(--color-accent-soft)]",
+              "flex size-10 items-center justify-center rounded-[12px] bg-[var(--color-accent-tint)] text-[var(--color-accent)]",
               iconClassName
             )}
           >
@@ -35,13 +35,13 @@ export default function Card({
         ) : null}
         {badge ? <Badge>{badge}</Badge> : null}
         {!badge && cta ? (
-          <ArrowUpRight className="size-4 text-[var(--color-muted)] transition duration-300 group-hover:text-white" />
+          <ArrowUpRight className="size-4 text-[var(--color-muted)] transition duration-300 group-hover:text-[var(--color-accent)]" />
         ) : null}
       </div>
       {title ? (
         <h3
           className={cn(
-            "mt-5 text-[1.15rem] font-bold leading-[1.3] tracking-[-0.02em] text-white",
+            "mt-5 text-[1.05rem] font-semibold leading-[1.35] tracking-[-0.02em] text-[var(--color-text)]",
             titleClassName
           )}
         >
@@ -51,7 +51,7 @@ export default function Card({
       {description ? (
         <p
           className={cn(
-            "mt-3 text-[14px] leading-[1.65] text-[var(--color-muted)]",
+            "mt-2.5 text-[14px] leading-[1.65] text-[var(--color-muted)]",
             descriptionClassName
           )}
         >

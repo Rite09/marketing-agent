@@ -4,10 +4,10 @@ export default function Tag({ className, active = false, children }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-4 py-2 text-sm transition duration-300",
+        "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition duration-200",
         active
-          ? "border-[var(--color-accent)] bg-[rgba(46,102,255,0.12)] text-white"
-          : "border-[var(--color-border)] bg-transparent text-[var(--color-muted)]",
+          ? "border-[rgba(37,99,235,0.28)] bg-[var(--color-accent-tint)] text-[var(--color-accent)]"
+          : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted)]",
         className
       )}
     >

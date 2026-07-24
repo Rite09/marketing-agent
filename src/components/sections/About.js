@@ -6,7 +6,6 @@ import Card from "@/components/ui/Card";
 import Heading from "@/components/ui/Heading";
 import Reveal from "@/components/ui/Reveal";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Tag from "@/components/ui/Tag";
 
 const missionCards = [
   {
@@ -32,26 +31,26 @@ const missionCards = [
 export default function AboutSection() {
   return (
     <div>
-      <SectionContainer className="border-b border-[var(--color-border)] pt-28 sm:pt-32 lg:pt-36">
-        <div className="grid gap-12 pb-20 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:pb-28">
+      <SectionContainer className="hero-mesh border-b border-[var(--color-border)] pt-28 sm:pt-32 lg:pt-36">
+        <div className="grid gap-12 pb-16 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:pb-24">
           <div>
             <Reveal>
-              <Tag className="border-none bg-transparent px-0 py-0 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent-soft)]">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">
                 OUR STORY
-              </Tag>
+              </p>
             </Reveal>
 
-            <Reveal delay={0.08}>
+            <Reveal delay={0.06}>
               <Heading
                 as="h1"
-                className="mt-6 max-w-[14ch] text-[2.5rem] leading-[1.1] sm:text-[3.15rem] lg:text-[3.35rem]"
+                className="mt-5 max-w-[14ch] text-[2.5rem] sm:text-[3.1rem] lg:text-[3.25rem]"
               >
                 Helping small businesses grow with smart, simple marketing.
               </Heading>
             </Reveal>
 
-            <Reveal delay={0.16}>
-              <div className="mt-7 max-w-[34rem] space-y-5 text-[15px] leading-[1.7] text-[var(--color-muted)] sm:text-[16px]">
+            <Reveal delay={0.12}>
+              <div className="mt-6 max-w-[34rem] space-y-4 text-[15px] leading-[1.7] text-[var(--color-muted)] sm:text-[16px]">
                 <p>
                   CipherIgnite started with a simple frustration: small and
                   medium businesses were being sold complicated marketing they
@@ -73,13 +72,13 @@ export default function AboutSection() {
           </div>
 
           <Reveal variant="fadeLeft">
-            <div className="mx-auto max-w-[520px] overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[rgba(10,14,20,0.96)] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.4)] lg:ml-auto lg:mr-0">
+            <div className="mx-auto max-w-[520px] overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)] lg:ml-auto lg:mr-0">
               <Image
-                src="/images/team-session.jpg"
+                src="/images/team-collab.jpg"
                 alt="CipherIgnite team collaborating over campaign materials"
                 width={560}
                 height={510}
-                className="aspect-[4/3.4] h-auto w-full rounded-xl object-cover"
+                className="aspect-[4/3.4] h-auto w-full rounded-[16px] object-cover"
                 priority
               />
             </div>
@@ -87,7 +86,7 @@ export default function AboutSection() {
         </div>
       </SectionContainer>
 
-      <SectionContainer className="py-24 sm:py-28 lg:py-32">
+      <SectionContainer className="bg-[var(--color-surface)] py-20 sm:py-24 lg:py-28">
         <SectionTitle
           eyebrow="OUR MISSION"
           title={
@@ -97,18 +96,13 @@ export default function AboutSection() {
               smart strategies and clear data - without the agency fluff.
             </>
           }
-          titleClassName="max-w-[22ch] text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem]"
+          titleClassName="max-w-[22ch]"
         />
 
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {missionCards.map((card, index) => (
-            <Reveal key={card.title} delay={index * 0.06}>
-              <Card
-                {...card}
-                className="h-full p-6"
-                titleClassName="mt-4 text-[1.1rem]"
-                descriptionClassName="mt-2.5 text-[14px] leading-[1.65]"
-              />
+            <Reveal key={card.title} delay={index * 0.05} variant="scaleIn">
+              <Card {...card} className="h-full" />
             </Reveal>
           ))}
         </div>

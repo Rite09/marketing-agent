@@ -8,7 +8,7 @@ export default function Heading({
   return (
     <Component
       className={cn(
-        "font-bold leading-[1.05] tracking-[-0.035em] text-white",
+        "font-semibold leading-[1.1] tracking-[-0.035em] text-[var(--color-text)]",
         className
       )}
     >
