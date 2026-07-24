@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #05070a;
+  --color-surface: #0a0e14;
+  --color-surface-strong: #10151f;
+  --color-text: #ffffff;
+  --color-muted: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-accent: #2d68ff;
+  --color-accent-strong: #2558e6;
+  --color-accent-soft: #68a0ff;
+  --color-accent-cyan: #5ce1ff;
+  --color-success: #22c55e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 8%, rgba(45, 104, 255, 0.14), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 10% 70%, rgba(13, 79, 144, 0.12), transparent 50%),
+    var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-jakarta), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(45, 104, 255, 0.28);
+  color: #ffffff;
+}
+
+.text-gradient {
+  background: linear-gradient(105deg, #5ce1ff 0%, #3b82ff 55%, #2d68ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-grid {
+  background:
+    linear-gradient(rgba(117, 135, 176, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 135, 176, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 20%, transparent 75%);
+  opacity: 0.9;
+}
+
+.hero-glow::before,
+.cta-glow::before,
+.page-glow::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 78% 28%, rgba(45, 104, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 18% 72%, rgba(19, 175, 161, 0.12), transparent 28%);
+}
+
+.hero-orb-left,
+.hero-orb-right {
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(45, 104, 255, 0.2), transparent 70%);
+  filter: blur(12px);
+}
+
+.hero-band,
+.hero-band-alt {
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(45, 104, 255, 0.18), rgba(92, 225, 255, 0.04));
+  filter: blur(2px);
+}
+
+.hero-card-shape {
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(45, 104, 255, 0.16), rgba(18, 63, 108, 0.02));
+  filter: blur(0.4px);
+}
+
+.hero-ring-left,
+.hero-ring-right {
+  border-radius: 999px;
+  border: 1.5px solid rgba(92, 225, 255, 0.18);
+  filter: blur(0.3px);
+}
+
+.cta-glow::after {
+  position: absolute;
+  bottom: -14%;
+  right: -6%;
+  height: 16rem;
+  width: 16rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(45, 104, 255, 0.28), transparent 70%);
+  content: "";
+  filter: blur(26px);
+}
+
+.page-glow::after {
+  position: absolute;
+  top: -10%;
+  left: -4%;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(45, 104, 255, 0.14), transparent 70%);
+  content: "";
+  filter: blur(18px);
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
 }
