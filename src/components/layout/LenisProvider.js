@@ -1,30 +1,42 @@
 "use client";
 
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 export default function LenisProvider({ children }) {
+  const pathname = usePathname();
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
+      autoRaf: true,
       duration: 1.1,
       smoothWheel: true,
       syncTouch: false,
+      stopInertiaOnNavigate: true,
     });
-
-    let frameId = 0;
-
-    const raf = (time) => {
-      lenis.raf(time);
-      frameId = window.requestAnimationFrame(raf);
-    };
-
-    frameId = window.requestAnimationFrame(raf);
+    lenisRef.current = lenis;
 
     return () => {
-      window.cancelAnimationFrame(frameId);
+      lenisRef.current = null;
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    const lenis = lenisRef.current;
+
+    if (!lenis) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      lenis.resize();
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [pathname]);
 
   return children;
 }
